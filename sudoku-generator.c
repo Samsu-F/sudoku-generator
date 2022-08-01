@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include <time.h>
-#include <assert.h>
 
 char* new_sudoku()
 {
@@ -252,7 +251,6 @@ bool sudoku_is_unambiguous(char* s)
 //in situ
 void sudoku_delete_numbers(char matrix[81], int n)
 {
-    assert(n <= 64); // 64 = 81-17
     int* index_permutation = rand_index_permutation();
     for(int i = 0; i < 81; i++)
     {
@@ -280,7 +278,6 @@ void sudoku_delete_numbers(char matrix[81], int n)
 
 void generate_unambiguous_sudoku(int n, int printnumber)
 {
-    assert(n >= 17 && n <= 81);
     char* sudoku = new_sudoku();
     sudoku_insert(sudoku, 0, 2);
     char* solution = copy_sudoku(sudoku);
