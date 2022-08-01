@@ -294,15 +294,26 @@ void generate_unambiguous_sudoku(int n, int printnumber)
 
 
 
-int main()
+int main(int argc, char* argv[])
 {
+    int no_of_sudokus = 1;
+    int label_offset = 1;
+    if(argc >= 1)
+    {
+        no_of_sudokus = atoi(argv[1]);
+    }
+    if(argc >= 2)
+    {
+        label_offset = atoi(argv[2]);
+    }
+
     srand(time(NULL));
 
-    for(int label_number = 1; label_number <= 1024; label_number++)
+    for(int i = 0; i < no_of_sudokus; i++)
     {
-        generate_unambiguous_sudoku(17, label_number);
+        generate_unambiguous_sudoku(17, i + label_offset);
 
-        if(label_number % 2 == 1)
+        if(i % 2 == 0)
         {
             fprintf(stdout, "\n\n\n");
         }
