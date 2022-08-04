@@ -295,11 +295,11 @@ int main(int argc, char* argv[])
 {
     int no_of_sudokus = 1;
     int label_offset = 1;
-    if(argc >= 1)
+    if(argc > 1)
     {
         no_of_sudokus = atoi(argv[1]);
     }
-    if(argc >= 2)
+    if(argc > 2)
     {
         label_offset = atoi(argv[2]);
     }
